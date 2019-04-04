@@ -28,9 +28,13 @@ class Solution:
 def long_common(strs:[str]):
     if not strs:
         return ''
+
+    #figure out the maximum common lengths
     minLen = len(strs[0])
     for i in range(len(strs)):
         minLen = min(len(strs[i]), minLen)
+
+    #select the first item and compare to the other
     lcp =''
     i = 0
     while i < minLen:
@@ -44,4 +48,4 @@ def long_common(strs:[str]):
     return lcp
 
 
-print(long_common(['flow', 'flosedfe', 'flo0000']))
+# print(long_common(['flow', 'flosedfe', 'flo0000']))
