@@ -1,6 +1,6 @@
 #/usr/local/bin/python3.6
 
-
+##reduce function
 from functools import reduce
 
 
@@ -25,6 +25,23 @@ class Solution:
         return reduce(self.get_common_prefix, strs)
 
 
-a = Solution()
-print(a.longestCommonPrefix(['23xxxx','23xkoko', '23x00000']))
+def long_common(strs:[str]):
+    if not strs:
+        return ''
+    minLen = len(strs[0])
+    for i in range(len(strs)):
+        minLen = min(len(strs[i]), minLen)
+    lcp =''
+    i = 0
+    while i < minLen:
+        char = strs[0][i]
+        for j in range(1, len(strs)):
+            if strs[j][i] != char:
+                return lcp
+        lcp = lcp + char
+        i += 1
 
+    return lcp
+
+
+print(long_common(['flow', 'flosedfe', 'flo0000']))
